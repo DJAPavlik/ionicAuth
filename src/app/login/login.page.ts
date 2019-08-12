@@ -5,20 +5,31 @@ import { NgForm } from '@angular/forms';
 import { UserService } from '../user.service';
 // 1. Import the User object (model)
 import { User } from '../../models/user';
+import { AppRoutingModule } from '../app-routing.module';
+import { Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: 'goToRegister', redirectTo: 'register', pathMatch: 'full' }
+];
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
+
 export class LoginPage implements OnInit {
+  locAppRoute = new AppRoutingModule();
+  
   
   user:User = new User();
   
   errorMessage: any;
 
   // 4. Clear out the contructor login
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService ) { }
 
 
   ngOnInit() {  }
@@ -41,5 +52,15 @@ export class LoginPage implements OnInit {
     );
   
   }  // end onSubmit() method
+
+  onRegister(): void{
+   // this.locAppRoute();
+    
+//    this.router.navigate(['/articles/view/', response.post._id]);
+   console.log('in onRegister');
+
+    
+  
+  }  // end onRegister() method
 
 }
