@@ -1,27 +1,42 @@
-<!--
-
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Login ionicAuth</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+
+  <ion-item *ngIf="errorMessage" color="danger">{{ errorMessage }}</ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Username</ion-label>
+    <ion-input type="text" name="username" [(ngModel)]="user.username"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="password" name="password" [(ngModel)]="user.password"></ion-input>
+  </ion-item>
+
+  <ion-button color="primary" expand="full" (click)="onSubmit()">Submit</ion-button>
 
 </ion-content>
 
--->
 
-
+<!--
 <form (ngSubmit)="login()">
 
   <div *ngIf="error" class="alert-error">Invalid Credentials</div>
 
   <label>Username</label>
   <input [(ngModel)]="user.username" name="username">
-
+  
   <label>Password</label>
   <input [(ngModel)]="user.password" name="password">
 
   <input type="submit">
 </form>
+-->

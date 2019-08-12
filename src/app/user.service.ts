@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
-// 1. Import HttpHeaders
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 import { Observable } from 'rxjs';
-
-// 2. Import the User object (model)
 import { User } from '../models/user';
 
 // 3. Create a JSON header to be attached to outbound post requests
@@ -17,15 +13,27 @@ const httpOptions = {
 })
 export class UserService {
   // 4. Set the domain portion of the url
-  private url:string = 'http://localhost:3000/api/auth';
+  private url:string 
 
-  constructor(
-    private http:HttpClient
-  ) { }
+  constructor(private http: HttpClient) {
+    let l = window.location;
+    let host:string;
+    
+    if(l.port == '8100'){
+      host = 'localhost:3000';
+    }else{
+      host = l.hostname + ((l.port.length>0)?':' + l.port:'');
+    }
+   // console.log('    - host in UserService');
+   // console.log(host);
+    this.url = `${l.protocol}//${host}/api/auth/`;
+   // console.log('    - this.url in UserService');
+   // console.log(this.url);
+   // console.log('');
+  }
 
-  // 5. Replace the test method with a working implementation of login.
-  login(user: User): Observable<User> {
-    console.log(`${this.url}/login`);
-    return this.http.post<User>(`${this.url}/login`, user, httpOptions);
+  
+  logIn(user: User): Observable<User>{
+    return this.http.post<User>(this.url + 'login', user, httpOptions);
   }
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -10,9 +11,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { NgApodConfig } from '../../../config/ng-apod.config';
-// import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import { UserService } from './user.service';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,14 +21,14 @@ import { environment } from '../environments/environment';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule,
- //   ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
-  ],
+    HttpClientModule
+   ],
   providers: [
     StatusBar,
     SplashScreen,
-    NgApodConfig,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    UserService,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })

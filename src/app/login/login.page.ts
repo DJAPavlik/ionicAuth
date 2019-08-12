@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms'; 
+
 
 import { UserService } from '../user.service';
-
 // 1. Import the User object (model)
 import { User } from '../../models/user';
 
@@ -11,31 +12,34 @@ import { User } from '../../models/user';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  // 2. Create a new instance of the User object
+  
   user:User = new User();
-  // 3. Instantiate an errors array
-  error: any;
+  
+  errorMessage: any;
 
   // 4. Clear out the contructor login
   constructor(private userService: UserService) {}
 
 
-  ngOnInit() {
+  ngOnInit() {  }
+
+  response(response): void{
+    if(response.success===false){
+      this.errorMessage = 'Invalid Credentials';
+    }
+
+    if(response.success===true){
+      window.location.href = '/';
+    }
   }
 
-  // 5. Add a login method
-  login(): void{
-
-    this.userService.login(this.user).subscribe(
-      (response:any)=>{
-        console.log(response);
-
-        if(response.success == false){
-          this.error=true;
-        }
-
+  onSubmit(): void{
+    this.userService.logIn(this.user).subscribe(
+      (response) => {
+        this.response(response);
       }
     );
-  }  // end login method
+  
+  }  // end onSubmit() method
 
 }
