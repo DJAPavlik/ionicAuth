@@ -20,6 +20,7 @@ export class RegisterPage implements OnInit {
   user:User = new User();
   confirmPw:string;
   errorMessage: any;
+  errorPw:string;
 
   // 4. Clear out the contructor login
   constructor(private userService: UserService ) { }
@@ -38,16 +39,22 @@ export class RegisterPage implements OnInit {
   }
 
   onSubmitRegistration(): void{
+    this.errorPw = '';
     alert('in onSubmitRegistration');
  /*   if (!this.user.username ||
         !this.user.first_name ||
         !this.user.last_name ||
         !this.user.username  ||
-        !this.user.password  )
+        !this.user.password  ||
+        !this.confirmPw        )
       {this.errorMessage = 'enter all data'}
-*/
-//var form = document.getElementById('registration.page.html');
-  console.log(this.confirmPw);
+      else { // all data entered check each for content
+
+      }*/   
+      if ( this.user.password !== this.confirmPw ) 
+        {this.errorPw = 'Passwords do not match'}
+
+  //  console.log(this.confirmPw);
 //var college = form.element.searchfield.value;
 
 
