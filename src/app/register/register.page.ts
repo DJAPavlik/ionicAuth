@@ -18,7 +18,7 @@ export class RegisterPage implements OnInit {
   
   
   user:User = new User();
-  
+  confirmPw:string;
   errorMessage: any;
 
   // 4. Clear out the contructor login
@@ -37,13 +37,26 @@ export class RegisterPage implements OnInit {
     }
   }
 
-  onSubmit(): void{
-  //  console.log(this.user.logIn(this.co))
-    this.userService.logIn(this.user).subscribe(
-      (response) => {
-        this.response(response);
-      }
-    );
+  onSubmitRegistration(): void{
+    alert('in onSubmitRegistration');
+ /*   if (!this.user.username ||
+        !this.user.first_name ||
+        !this.user.last_name ||
+        !this.user.username  ||
+        !this.user.password  )
+      {this.errorMessage = 'enter all data'}
+*/
+//var form = document.getElementById('registration.page.html');
+  console.log(this.confirmPw);
+//var college = form.element.searchfield.value;
+
+
+    /* console.log(this.user.logIn(this.co))
+      this.userService.logIn(this.user).subscribe(
+        (response) => {
+          this.response(response);
+        }
+    ); //  JUNKJUNK */
   
 
 
@@ -51,6 +64,6 @@ export class RegisterPage implements OnInit {
 
     
   
-  }  // end onSubmit() method
+  }  // end onSubmitRegistration() method
 
 }  // end class RegisterPage
