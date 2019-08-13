@@ -14,6 +14,7 @@ const httpOptions = {
 export class UserService {
   // 4. Set the domain portion of the url
   private url:string 
+  private getUsersUrl:string
 
   constructor(private http: HttpClient) {
     let l = window.location;
@@ -27,12 +28,29 @@ export class UserService {
    // console.log('    - host in UserService');
    // console.log(host);
     this.url = `${l.protocol}//${host}/api/auth/`;
-   // console.log('    - this.url in UserService');
-   // console.log(this.url);
-   // console.log('');
+    this.getUsersUrl=`${l.protocol}//${host}/api/users`;
+  //  console.log('    - this.url in UserService');
+  //  console.log(this.url);
+  //  console.log('');
+  // alert('hold in constructor');
   }
-  
-  
+
+  registerUser(user: User): Observable<User>{
+    console.log('in registerUser in user.serves.ts')
+    console.log( this.getUsersUrl)
+    console.log(user)
+    console.log(httpOptions)
+    
+    console.log( 
+      this.http.put<User>(this.getUsersUrl , user, httpOptions)
+    )
+    console.log('-----    ----- '    )
+    return this.http.post<User>(this.getUsersUrl , user, httpOptions);
+  }
+
+
+
+
   logIn(user: User): Observable<User>{
     return this.http.post<User>(this.url + 'login', user, httpOptions);
   }

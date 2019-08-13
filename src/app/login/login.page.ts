@@ -41,18 +41,15 @@ export class LoginPage implements OnInit {
   }
 
   onSubmit(): void{
+   //  console.log('in asd login.page.ts - onSubmit()')
     this.userService.logIn(this.user).subscribe(
+      
       (response) => {
+        console.log(this.response);
+
         this.response(response);
       }
     );
-  
-
-
- 
-
-    
-  
   }  // end onSubmit() method
 
 }  // end class LoginPage

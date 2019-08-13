@@ -29,8 +29,11 @@ export class RegisterPage implements OnInit {
   ngOnInit() {  }
 
   response(response): void{
+    console.log('in response(respone)')
+    console.log(response)
+
     if(response.success===false){
-      this.errorMessage = 'Invalid Credentials';
+      this.errorMessage = 'User Already in file';
     }
 
     if(response.success===true){
@@ -40,6 +43,7 @@ export class RegisterPage implements OnInit {
 
   onSubmitRegistration(): void{
     this.errorPw = '';
+
     alert('in onSubmitRegistration');
  /*   if (!this.user.username ||
         !this.user.first_name ||
@@ -50,20 +54,22 @@ export class RegisterPage implements OnInit {
       {this.errorMessage = 'enter all data'}
       else { // all data entered check each for content
 
-      }*/   
+         
       if ( this.user.password !== this.confirmPw ) 
-        {this.errorPw = 'Passwords do not match'}
+        {this.errorPw = 'Passwords do not match'}}*/
+     //  console.log('in asd login.page.ts - onSubmit()')
+     this.userService.registerUser(this.user).subscribe(
+        
+      (response) => {
+        console.log(this.response);
 
-  //  console.log(this.confirmPw);
-//var college = form.element.searchfield.value;
+        this.response(response);
+      } )
+           
+    }  // end onSubmitRegistration() method
+  
 
-
-    /* console.log(this.user.logIn(this.co))
-      this.userService.logIn(this.user).subscribe(
-        (response) => {
-          this.response(response);
-        }
-    ); //  JUNKJUNK */
+  
   
 
 
@@ -71,6 +77,6 @@ export class RegisterPage implements OnInit {
 
     
   
-  }  // end onSubmitRegistration() method
+ 
 
 }  // end class RegisterPage
