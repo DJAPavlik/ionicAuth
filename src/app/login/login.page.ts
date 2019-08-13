@@ -6,11 +6,7 @@ import { UserService } from '../user.service';
 // 1. Import the User object (model)
 import { User } from '../../models/user';
 import { AppRoutingModule } from '../app-routing.module';
-import { Routes } from '@angular/router';
 
-const routes: Routes = [
-  { path: 'goToRegister', redirectTo: 'register', pathMatch: 'full' }
-];
 
 
 @Component({
@@ -51,16 +47,12 @@ export class LoginPage implements OnInit {
       }
     );
   
-  }  // end onSubmit() method
 
-  onRegister(): void{
-   // this.locAppRoute();
-    
-//    this.router.navigate(['/articles/view/', response.post._id]);
-   console.log('in onRegister');
+
+ 
 
     
   
-  }  // end onRegister() method
+  }  // end onSubmit() method
 
-}
+}  // end class LoginPage

@@ -1,9 +1,44 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>register</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Register to Use App</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
 
+  <ion-item *ngIf="errorMessage" color="danger">{{ errorMessage }}</ion-item>
+  <ion-item>
+    <ion-label position="floating">First Name</ion-label>
+    <ion-input type="text" name="firstname" [(ngModel)]="user.first_name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Last Name</ion-label>
+    <ion-input type="text" name="lastname" [(ngModel)]="user.last_name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Username</ion-label>
+    <ion-input type="text" name="username" [(ngModel)]="user.username"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email" name="email" [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="password" name="password" [(ngModel)]="user.password"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Reenter Password</ion-label>
+    <ion-input type="password" name="confirmPw" ></ion-input>
+  </ion-item>
+
+  <ion-button color="primary" expand="full" (click)="onSubmit()">Submit</ion-button>
+
+  <ion-button color="primary" expand="full" [routerLink]="['/login']">Cancel</ion-button>
 </ion-content>
