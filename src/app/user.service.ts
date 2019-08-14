@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
-  // 4. Set the domain portion of the url
+ 
   private url:string 
   private getUsersUrl:string
 
@@ -36,15 +36,15 @@ export class UserService {
   }
 
   registerUser(user: User): Observable<User>{
-    console.log('in registerUser in user.serves.ts')
-    console.log( this.getUsersUrl)
-    console.log(user)
-    console.log(httpOptions)
+    // console.log('in registerUser in user.serves.ts')
+    // console.log( this.getUsersUrl)
+    // console.log(user)
+    // console.log(httpOptions)
     
-    console.log( 
-      this.http.put<User>(this.getUsersUrl , user, httpOptions)
-    )
-    console.log('-----    ----- '    )
+    // console.log( 
+    //   this.http.put<User>(this.getUsersUrl , user, httpOptions)
+    // )
+    // console.log('-----    ----- '    )
     return this.http.post<User>(this.getUsersUrl , user, httpOptions);
   }
 
@@ -54,4 +54,4 @@ export class UserService {
   logIn(user: User): Observable<User>{
     return this.http.post<User>(this.url + 'login', user, httpOptions);
   }
-}
+} // end class UserService

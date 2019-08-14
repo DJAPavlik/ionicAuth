@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 
 
 import { UserService } from '../user.service';
-// 1. Import the User object (model)
 import { User } from '../../models/user';
 import { AppRoutingModule } from '../app-routing.module';
 
