@@ -36,8 +36,8 @@ export class ArticlesService {
     this.getArticleUrl=`${l.protocol}//${host}/api/articles/`;
   }
 
-  getAllArticles(): Observable<Article[]> {
-    // console.log('InArticlesService');
+  getArticlesArray(): Observable<Article[]> {
+     console.log('getArticlesArray()');
      return this.http.get<Article[]>(this.getArticleUrl);
    }
 
