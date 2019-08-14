@@ -36,6 +36,14 @@ export class ArticlesService {
     this.getArticleUrl=`${l.protocol}//${host}/api/articles/`;
   }
 
+  getAllArticles(): Observable<Article[]> {
+    // console.log('InArticlesService');
+     return this.http.get<Article[]>(this.getArticleUrl);
+   }
+
+
+
+/*
   // get an array of all users
   getAllArticles() {
  
@@ -50,8 +58,8 @@ export class ArticlesService {
       else{console.log('error')}
     
 
+//
 
-/*
     xhr.setRequestHeader(
       'Content-Type',
       'application/json; charset=UTF-8'
@@ -72,12 +80,12 @@ export class ArticlesService {
           
       } // end function
 
- */
+
 
     } // end getallArticles method
 
 
-
+ */
 
 
 
