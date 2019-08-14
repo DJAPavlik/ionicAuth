@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>article-display</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ul *ngIf="pubarticle">
+   
+      <a >{{pubarticle.title}}</a>
+      <a >      {{pubarticle.description}} </a>
+    
+  </ul> 
+  <!--
+  <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-input type="text" name="lastname" [(ngModel)]="user.last_name" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Keywords</ion-label>
+    <ion-input type="text" name="username" [(ngModel)]="user.username" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Body</ion-label>
+    <ion-input type="text" name="email" [(ngModel)]="user.email" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Created</ion-label>
+    <ion-input type="text" name="password" [(ngModel)]="user.password" required></ion-input>
+  </ion-item>
+-->
+  <ion-button color="primary" expand="full" [routerLink]="['/view-articles']">Back</ion-button>
+
+</ion-content>
+<!--
+<div *ngIf="article">
+    <h1>{{article.title}} {{article.description}}</h1>
+    <div><strong>Keywords:</strong> {{article.keywords}}</div>
+    <div><strong>Body:</strong> {{article.body}}</div>
+    <button [routerLink]="['/articles/edit/', article._id]">Edit</button>
+    <button (click)="deleteArticle(article._id)">Delete</button>
+</div>
+
+
+
+-->

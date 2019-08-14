@@ -16,7 +16,8 @@
     -->
     <ul *ngIf="articles">
       <li *ngFor="let article of articles">
-        <a [routerLink]="['/articles/view/', article._id]">{{article.title}}  {{article.description}} </a>
+        <a [routerLink]="['/article/display/', article._id]">{{article.title}}</a>
+        <a >      {{article.description}} </a>
       </li>
     </ul> 
    

@@ -40,7 +40,10 @@ export class ArticlesService {
      console.log('getArticlesArray()');
      return this.http.get<Article[]>(this.getArticleUrl);
    }
-
+   getArticle(id: string): Observable<Article> {
+    //console.log('in service getArticle');
+    return this.http.get<Article>(`${this.url}/${id}`);
+  }
 
 
 /*
