@@ -27,7 +27,7 @@ export class ViewArticlesPage implements OnInit {
     this.articlesService.getArticlesArray().subscribe(
       (response:any) => {
         this.articles = response.articles;
-        console.log(this.articles)
+     //   console.log(this.articles)
       }
     );
   }

@@ -7,7 +7,6 @@ import { User } from '../../models/user';
 import { AppRoutingModule } from '../app-routing.module';
 
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -17,7 +16,9 @@ import { AppRoutingModule } from '../app-routing.module';
 
 export class LoginPage implements OnInit {
   locAppRoute = new AppRoutingModule();
+
   
+
   
   user:User = new User();
   
@@ -27,28 +28,32 @@ export class LoginPage implements OnInit {
   constructor(private userService: UserService ) { }
 
 
-  ngOnInit() {  }
+  ngOnInit() {   }
 
   response(response): void{
     if(response.success===false){
+      response.xxx = false
       this.errorMessage = 'Invalid Credentials';
     }
 
     if(response.success===true){
+      response.xxx = true
       window.location.href = '/';
     }
   }
+ 
 
   onSubmit(): void{
-   //  console.log('in asd login.page.ts - onSubmit()')
+    // console.log('in onSubmit')
+  
     this.userService.logIn(this.user).subscribe(
       
       (response) => {
-        console.log(this.response);
+        // console.log(this.response);
 
         this.response(response);
       }
     );
   }  // end onSubmit() method
-
+  
 }  // end class LoginPage

@@ -29,8 +29,8 @@ export class RegisterPage implements OnInit {
   ngOnInit() {  }
 
   response(response): void{
-    console.log('in response(respone)')
-    console.log(response)
+    // console.log('in response(respone)')
+    // console.log(response)
 
     if(response.success===false){
       this.errorMessage = 'User Already in file';

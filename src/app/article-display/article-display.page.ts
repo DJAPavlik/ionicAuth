@@ -30,9 +30,9 @@ export class ArticleDisplayPage implements OnInit {
       this.articlesService.getArticle(id).subscribe(
         (response:any) => {
           this.pubarticle = response.post;
-          console.log('---THIS  IS IT????')
-          console.log(this.pubarticle)
-          console.log('  --- ')
+          // console.log('---THIS  IS IT????')
+          // console.log(this.pubarticle)
+          // console.log('  --- ')
         }
       );
     }   // end getArticle(id)

@@ -13,7 +13,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { UserService } from './user.service';
 
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -32,4 +31,7 @@ import { UserService } from './user.service';
   ],
   bootstrap: [AppComponent]
 })
+
+
+
 export class AppModule {}

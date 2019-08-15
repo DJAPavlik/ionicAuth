@@ -13,11 +13,22 @@
   <div *ngIf="condition; then thenBlock else elseBlock"></div>
   <ng-template #thenBlock>Content to render when condition is true.</ng-template>
   <ng-template #elseBlock>Content to render when condition is false.</ng-template>
-  -->
+
+<div *ngIf="condition; else elseBlock">Content to render when condition is true.</div>
+<ng-template #elseBlock>Content to render when condition is false.</ng-template>
+
+
+<div *ngIf="{{isLoggedIn}}; else elseBlock">Content to render when condition is true.</div>
+<ng-template #elseBlock>Content to render when condition is false.</ng-template>
+
+  <div *ngIf="isLoggedIn">User Is Logged In</div>
+
+-->
+
 
   <ion-button color="primary" expand="full" [routerLink]="['/login']">Login</ion-button>
   <ion-button color="primary" expand="full" [routerLink]="['/register']">Register to Use</ion-button>
-  <ion-button color="primary" expand="full" [routerLink]="['/view-articles']">ViewArticles</ion-button>
+  <ion-button color="primary" expand="full" [routerLink]="['/view-articles']">View Articles</ion-button>
   
 <!--  <ion-button color="primary" expand="full" [routerLink]="['/home']">Home</ion-button> -->
 </ion-content>

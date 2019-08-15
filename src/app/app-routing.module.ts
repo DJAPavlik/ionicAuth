@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'view-articles', loadChildren: './view-articles/view-articles.module#ViewArticlesPageModule' },
   { path: 'article-display', loadChildren: './article-display/article-display.module#ArticleDisplayPageModule' },
   { path: 'article/display/:id',  loadChildren: './article-display/article-display.module#ArticleDisplayPageModule' },
+  { path: 'article-edit', loadChildren: './article-edit/article-edit.module#ArticleEditPageModule' },
 ];
 
 @NgModule({
