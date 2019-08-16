@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+        <ion-title>Edit Users</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  
+ 
+
+  <ul>
+    <div>
+        <li *ngFor="let user of users">
+       <!--  <a [routerLink]="['/article/display/', article._id]">{{article.title}}</a>
+            <a >      {{article.description}} </a>   -->
+        <p>{{user.username}} - {{user.first_name}}  {{user.last_name}}</p>
+        
+          
+        </li> 
+    </div>
+  </ul>
+
+
+
+
+    <ion-button color="primary" expand="full" [routerLink]="['/homeloggedin']">xxxBack</ion-button>
+
+</ion-content>

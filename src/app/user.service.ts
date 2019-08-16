@@ -37,15 +37,6 @@ export class UserService {
   }
 
   registerUser(user: User): Observable<User>{
-    // console.log('in registerUser in user.serves.ts')
-    // console.log( this.getUsersUrl)
-    // console.log(user)
-    // console.log(httpOptions)
-    
-    // console.log( 
-    //   this.http.put<User>(this.getUsersUrl , user, httpOptions)
-    // )
-    // console.log('-----    ----- '    )
     return this.http.post<User>(this.getUsersUrl , user, httpOptions);
   }
 
@@ -55,4 +46,16 @@ export class UserService {
   logIn(user: User): Observable<User>{
     return this.http.post<User>(this.url + 'login', user, httpOptions);
   }
+
+  getUsersArray(): Observable<User[]> {
+    console.log(' - - in getUsersArray')
+    console.log(this.getUsersUrl)
+    return this.http.get<User[]>(this.getUsersUrl);
+  }
+  getUser(id: string): Observable<User> {
+   //console.log('in service getArticle');
+   return this.http.get<User>(`${this.url}/${id}`);
+ }
+
+
 } // end class UserService

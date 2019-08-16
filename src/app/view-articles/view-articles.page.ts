@@ -50,7 +50,7 @@ export class ViewArticlesPage implements OnInit {
      //   console.log(this.articles)
       }
     );
-  }
+  }  // end getArticles
 
 
 
