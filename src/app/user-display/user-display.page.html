@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>View User Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <ul *ngIf="pubuser">
+   
+      <p>{{pubuser.first_name}}</p>
+      <p>      {{pubuser.last_name}} </p>
+    
+  </ul> 
+  
+  <ion-button color="primary" expand="full" [routerLink]="['/view-users']">Back</ion-button>
+
+</ion-content>
+-->

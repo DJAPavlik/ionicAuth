@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'article-edit', loadChildren: './article-edit/article-edit.module#ArticleEditPageModule' },
   { path: 'homeloggedin', loadChildren: './homeloggedin/homeloggedin.module#HomeloggedinPageModule' },
   { path: 'view-users', loadChildren: './view-users/view-users.module#ViewUsersPageModule' },
+  { path: 'user/display/:id', loadChildren: './user-display/user-display.module#UserDisplayPageModule' },
  
 ];
 

@@ -50,11 +50,12 @@ export class UserService {
   getUsersArray(): Observable<User[]> {
     console.log(' - - in getUsersArray')
     console.log(this.getUsersUrl)
-    return this.http.get<User[]>(this.getUsersUrl);
+    return this.http.get<User[]>(this.getUsersUrl)
   }
-  getUser(id: string): Observable<User> {
-   //console.log('in service getArticle');
-   return this.http.get<User>(`${this.url}/${id}`);
+  getUserById(id: string): Observable<User> {
+   console.log('in service getUserById');
+   console.log(`${this.getUsersUrl}/${id}` )
+   return this.http.get<User>(`${this.getUsersUrl}/${id}` )
  }
 
 

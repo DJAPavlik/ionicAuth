@@ -15,9 +15,8 @@
   <ul>
     <div>
         <li *ngFor="let user of users">
-       <!--  <a [routerLink]="['/article/display/', article._id]">{{article.title}}</a>
-            <a >      {{article.description}} </a>   -->
-        <p>{{user.username}} - {{user.first_name}}  {{user.last_name}}</p>
+       
+        <a [routerLink]="['/user/display/', user._id]">{{user.username}} - {{user.first_name}}  {{user.last_name}}</a>
         
           
         </li> 
