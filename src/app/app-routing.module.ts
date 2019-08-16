@@ -8,10 +8,13 @@ const routes: Routes = [
   { path: 'logout', loadChildren: './logout/logout.module#LogoutPageModule' },
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  { path: 'view-articles/#edel', loadChildren: './view-articles/view-articles.module#ViewArticlesPageModule' },
   { path: 'view-articles', loadChildren: './view-articles/view-articles.module#ViewArticlesPageModule' },
   { path: 'article-display', loadChildren: './article-display/article-display.module#ArticleDisplayPageModule' },
   { path: 'article/display/:id',  loadChildren: './article-display/article-display.module#ArticleDisplayPageModule' },
   { path: 'article-edit', loadChildren: './article-edit/article-edit.module#ArticleEditPageModule' },
+  { path: 'homeloggedin', loadChildren: './homeloggedin/homeloggedin.module#HomeloggedinPageModule' },
+ 
 ];
 
 @NgModule({

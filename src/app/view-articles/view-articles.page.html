@@ -3,7 +3,12 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>View Articles</ion-title>
+      <p  *ngIf=this.isLoggedIn>
+          <ion-title>Edit Articles</ion-title>
+      </p>
+      <p *ngIf=this.isLoggedOut>
+          <ion-title>View Articles</ion-title>
+      </p>
     </ion-toolbar>
   </ion-header>
   
@@ -14,16 +19,37 @@
     <ng-template #thenBlock>Content to render when condition is true.</ng-template>
     <ng-template #elseBlock>Content to render when condition is false.</ng-template>
     -->
-    <ul *ngIf="articles">
-      <li *ngFor="let article of articles">
-        <a [routerLink]="['/article/display/', article._id]">{{article.title}}</a>
-        <a >      {{article.description}} </a>
-      </li>
-    </ul> 
    
-    
-    <ion-button color="primary" expand="full" [routerLink]="['/home']">Home</ion-button> 
-  </ion-content>
+
+    <ul *ngIf=this.isLoggedIn>
+      <div>
+          <li *ngFor="let article of articles">
+              <a [routerLink]="['/article/display/', article._id]">{{article.title}}</a>
+              <a >      {{article.description}} </a>
+          </li> 
+          <p>If logic</p>
+      </div>
+    </ul>
+
+ 
+
+    <ul *ngIf=this.isLoggedOut>
+        <li *ngFor="let article of articles">
+            <a [routerLink]="['/article/display/', article._id]">{{article.title}}</a>
+            <a >      {{article.description}} </a>
+        </li> 
+        <p>else logic</p>
+      </ul>
+
+ 
+    <p  *ngIf=this.isLoggedIn>           <!-- '#/homeloggedin';  -->
+      <ion-button color="primary" expand="full" [routerLink]="['/homeloggedin']">xxxBack</ion-button>
+    </p>
+    <p *ngIf=this.isLoggedOut>
+      <ion-button color="primary" expand="full" [routerLink]="['/home']">Back213123</ion-button>
+    </p>
+ 
+ </ion-content>
 
 <!--  From ng-cms
   <h1>Articles</h1>

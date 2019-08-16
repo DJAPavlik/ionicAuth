@@ -32,13 +32,11 @@ export class LoginPage implements OnInit {
 
   response(response): void{
     if(response.success===false){
-      response.xxx = false
       this.errorMessage = 'Invalid Credentials';
     }
 
     if(response.success===true){
-      response.xxx = true
-      window.location.href = '/';
+      window.location.href = '#/homeloggedin';
     }
   }
  
