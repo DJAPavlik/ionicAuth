@@ -39,13 +39,16 @@ export class RegisterPage implements OnInit {
     if(response.success===true){
       window.location.href = '/';
     }
-  }
+  }    // end response(response)
 
   onSubmitRegistration(): void{
     this.errorPw = '';
 
+ /*   JUNKJUNK - Need to complete edit codes for new user
+ 
     alert('in onSubmitRegistration');
- /*   if (!this.user.username ||
+
+ if (!this.user.username ||
         !this.user.first_name ||
         !this.user.last_name ||
         !this.user.username  ||
@@ -57,6 +60,8 @@ export class RegisterPage implements OnInit {
          
       if ( this.user.password !== this.confirmPw ) 
         {this.errorPw = 'Passwords do not match'}}*/
+
+
      //  console.log('in asd login.page.ts - onSubmit()')
      this.userService.registerUser(this.user).subscribe(
         

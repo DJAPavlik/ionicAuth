@@ -1,20 +1,48 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>View User Detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Edit User</ion-title>
   </ion-toolbar>
 </ion-header>
 
-
-
 <ion-content padding>
   <ul *ngIf="pubuser">
-   
-      <p>{{pubuser.first_name}}</p>
-      <p>      {{pubuser.last_name}} </p>
-    
-  </ul> 
-  
-  <ion-button color="primary" expand="full" [routerLink]="['/view-users']">Back</ion-button>
+  <ion-item *ngIf="errorMessage" color="danger">{{ errorMessage }}</ion-item>
+  <ion-item>
+    <ion-label position="floating">First Name</ion-label>
+    <ion-input type="text" name="firstname" [(ngModel)]="pubuser.first_name" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Last Name</ion-label>
+    <ion-input type="text" name="lastname" [(ngModel)]="pubuser.last_name" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Username</ion-label>
+    <ion-input type="text" name="username" [(ngModel)]="pubuser.username" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email" name="email" [(ngModel)]="pubuser.email" required></ion-input>
+  </ion-item>
 
-</ion-content>
+  <ion-item *ngIf="errorPw" color="danger">{{ errorPw }}</ion-item>
+  <ion-item>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="text" name="password" [(ngModel)]="pubuser.password" required></ion-input>
+  </ion-item>
+  </ul>
+<!--
+  <ion-item>
+    <ion-label position="floating">Reenter Password</ion-label>
+
+    <ion-input type="password" [(ngModel)]="confirmPw" text-left id="input" ></ion-input>
+  </ion-item>
 -->
+  <ion-button color="primary" expand="full" (click)="onSubmitUpdateUser()">Update</ion-button>
+  
+  <ion-button color="primary" expand="full" (click)="onSubmitDeleteUser()">Delete</ion-button>
+  <ion-button color="primary" expand="full" [routerLink]="['/view-users']">Back</ion-button>
+  
+</ion-content>
